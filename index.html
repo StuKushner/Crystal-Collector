@@ -2,8 +2,89 @@
 <html>
 <head>
 	<title>Crystal Collector!</title>
+
+	<!-- Add links to CSS files -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+	<!-- Add link to jQuery library -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Add link to Bootstrap library -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
+
+	<!-- Create header -->
+	<div class="jumbotron">
+		<h1 class="text-center">Crystal Collector!</h1>
+	</div>
+
+	<!-- Create instruction panel -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="panel panel-default">
+  					<div class="panel-heading">
+    					<h3 class="panel-title">Instructions</h3>
+  					</div>
+  					<div class="panel-body">
+    					<p>You will be given a random number at the start of the game.</p>
+    					<p>There are four crystals below. By clicking on a crystal, you will
+    						add a number of points to your total score.</p>
+    					<p>If your total score is equal to the random number, you win. If not, you lose.</p>
+    					<p>The value of the crystal is hidden from you until you click on it.</p>
+    					<p>When you play the game again, the random number will be reset.</p>
+    					<p>When you're ready, click on a crystal to start playing!</p>
+  					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Numbers and Results</h3>
+					</div>
+					<div class="panel-body">
+						<div id="random-number">
+							<p>Number Chosen: <strong><span id="number-chosen">0</span></strong></p>
+						</div>
+						<div id="wins-and-losses">
+							<p>Wins: <strong><span id="wins">0</span></strong></p>
+							<p>Losses: <strong><span id="losses">0</span></strong></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Create crystals -->
+		<div class="row">
+			<div class="col-lg-8">
+				<div id="crystals">
+					<img src="assets/images/red-crystal.jpg" class="img-thumbnail" alt="red-crystal">
+					<img src="assets/images/blue-crystal.jpg" class="img-thumbnail" alt="blue-crystal">
+					<img src="assets/images/yellow-crystal.jpg" class="img-thumbnail" alt="yellow-crystal">
+					<img src="assets/images/green-crystal.jpg" class="img-thumbnail" alt="green-crystal">
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Total Score</h3>
+					</div>
+					<div class="panel-body">
+						<div id="score">
+							<p>Your total score is: <strong><span id="score">0</span></strong></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Link to javascript file -->
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </body>
 </html>
