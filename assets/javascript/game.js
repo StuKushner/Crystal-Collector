@@ -1,77 +1,88 @@
 $(document).ready(function() {
 
-//Variables
-	var counter = 0;
-	var wins = 0;
-	$("#wins").text(wins);
+//variables
 
-	var losses = 0;
-	$("#losses").text(losses);
+var totalScore = 0;
+var wins = 0;
+$("#wins").text(wins);
+var losses = 0;
+$("#losses").text(losses);
 
-	var numberChosen = Math.floor(Math.random() * (120 - 19 + 1) + 19);
-	$("#number-chosen").text(numberChosen);
+var numberChosen = Math.floor(Math.random() * 120 - 19 + 1) + 19;
+$("#number-chosen").text(numberChosen);
+console.log("Number Chosen = " + numberChosen);
 
-	var redValue = Math.floor(Math.random() * (12 - 1 + 1) + 1);
-	var blueValue = Math.floor(Math.random() * (12 - 1 + 1) + 1);
-	var yellowValue = Math.floor(Math.random() * (12 - 1 + 1) + 1);
-	var greenValue = Math.floor(Math.random() * (12 - 1 + 1) + 1);
+var redValue = Math.floor(Math.random() * 12 - 1 + 1) + 1;
+console.log("Red Value = " + redValue);
+var blueValue = Math.floor(Math.random() * 12 - 1 + 1) + 1;
+console.log("Blue Value = " + blueValue);
+var yellowValue = Math.floor(Math.random() * 12 - 1 + 1) + 1;
+console.log("Yellow Value = " + yellowValue);
+var greenValue = Math.floor(Math.random() * 12 - 1 + 1) + 1;
+console.log("Green Value = " + greenValue);
 
-//Functions
+// functions
 
 function newGame() {
-	counter = 0;
-	$("#totalScore").text(counter);
-
-	numberChosen = Math.floor(Math.random() * (120 - 19 + 1) + 19);
+	numberChosen = Math.floor(Math.random() * 120 - 19 + 1) + 19;
 	$("#number-chosen").text(numberChosen);
-	console.log(numberChosen);
+	console.log("Number Chosen = " + numberChosen);
 
-	redValue = Math.floor(Math.random() * (12 - 1 + 1) + 1);
-	blueValue = Math.floor(Math.random() * (12 - 1 + 1) + 1);
-	yellowValue = Math.floor(Math.random() * (12 - 1 + 1) + 1);
-	greenValue = Math.floor(Math.random() * (12 - 1 + 1) + 1);
+	totalScore = 0;
+	$("#totalScore").text(totalScore);
+
+	redValue = Math.floor(Math.random() * 12 - 1 + 1) + 1;
+	console.log("Red Value = " + redValue);
+	blueValue = Math.floor(Math.random() * 12 - 1 + 1) + 1;
+	console.log("Blue Value = " + blueValue);
+	yellowValue = Math.floor(Math.random() * 12 - 1 + 1) + 1;
+	console.log("Yellow Value = " + yellowValue);
+	greenValue = Math.floor(Math.random() * 12 - 1 + 1) + 1;
+	console.log("Green Value = " + greenValue);
 }
 
 function winOrLose() {
-	if (counter === numberChosen) {
+	if(totalScore === numberChosen) {
 		alert("Congratulations! You Win!");
 		wins++;
 		$("#wins").text(wins);
 		newGame();
-	} else if (counter > numberChosen) {
-		alert("I'm sorry. Please try again.");
+	} else if (totalScore > numberChosen) {
+		alert("I'm sorry, but you went above " + numberChosen + " and hit " + totalScore + ". Please try again.");
 		losses++;
 		$("#losses").text(losses);
 		newGame();
 	}
 }
-	//Game
-	$(".red-crystal").on("click", function() {
-		counter += redValue;
-		console.log(counter);
-		$("#totalScore").text(counter);
-		winOrLose();
-	})
 
-	$(".blue-crystal").on("click", function() {
-		counter += blueValue;
-		console.log(counter);
-		$("#totalScore").text(counter);
-		winOrLose();
-	})
+// logic
 
-	$(".yellow-crystal").on("click", function() {
-		counter += yellowValue;
-		console.log(counter);
-		$("#totalScore").text(counter);
-		winOrLose();
-	})
+$(".red-crystal").on("click", function() {
+	totalScore += redValue;
+	$("#totalScore").text(totalScore);
+	console.log("Total Score = " + totalScore);
+	winOrLose();
+})
 
-	$(".green-crystal").on("click", function() {
-		counter += greenValue;
-		console.log(counter);
-		$("#totalScore").text(counter);
-		winOrLose();
-	});
+$(".blue-crystal").on("click", function() {
+	totalScore += blueValue;
+	$("#totalScore").text(totalScore);
+	console.log("Total Score = " + totalScore);
+	winOrLose();
+})
+
+$(".yellow-crystal").on("click", function() {
+	totalScore += yellowValue;
+	$("#totalScore").text(totalScore);
+	console.log("Total Score = " + totalScore);
+	winOrLose();
+})
+
+$(".green-crystal").on("click", function() {
+	totalScore += greenValue;
+	$("#totalScore").text(totalScore);
+	console.log("Total Score = " + totalScore);
+	winOrLose();
+});
 
 });
