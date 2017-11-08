@@ -3,14 +3,21 @@ html {
 	min-height: 100%;
 }
 
+.text-center {
+	color: white;
+}
+
 .container {
 	width: 100%;
 	margin: 0 auto;
 	clear: both;
+	background-image: url("assets/images/lightning-background.jpg");
 }
 
-.crystal-images {
+.red-crystal, .blue-crystal, .yellow-crystal, .green-crystal {
 	float: left;
 	width: 125px;
 	height: 125px;
 }
+
+
