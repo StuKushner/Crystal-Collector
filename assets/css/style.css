@@ -11,7 +11,6 @@ html {
 	width: 100%;
 	margin: 0 auto;
 	clear: both;
-	background-image: url("assets/images/lightning-background.jpg");
 }
 
 .red-crystal, .blue-crystal, .yellow-crystal, .green-crystal {
